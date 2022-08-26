@@ -17,7 +17,7 @@ import Button from "react-bootstrap/Button";
 import Toast from "react-bootstrap/Toast";
 import {Alert} from 'react-bootstrap';
 
-import * as Reach from "@reach-sh/stdlib/ALGO";
+import * as Reach from "@reach-sh/stdlib";
 
 
 import { Context } from "../../Context";

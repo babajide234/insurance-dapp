@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as Reach from "@reach-sh/stdlib/ALGO";
+import * as Reach from "@reach-sh/stdlib";
 
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";

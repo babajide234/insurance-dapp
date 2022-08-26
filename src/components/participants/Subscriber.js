@@ -1,6 +1,6 @@
 import { Component } from "react";
 import * as Backend from "../../build/index.main.mjs";
-import * as Reach from "@reach-sh/stdlib/ALGO";
+import * as Reach from "@reach-sh/stdlib";
 
 
 import { Context } from "../../Context";
