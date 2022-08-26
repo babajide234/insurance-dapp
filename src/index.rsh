@@ -88,7 +88,7 @@ export const main =
 
         commit();
         
-        wait(mat);
+        wait(relativeTime(mat));
         
         Subscriber.pay(howMuch);
         

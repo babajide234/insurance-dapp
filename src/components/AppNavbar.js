@@ -16,7 +16,7 @@ const AppNavbar = () => {
 
 
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar  bg="primary" variant="dark">
             <Container>
                 <Navbar.Brand>
                     <img

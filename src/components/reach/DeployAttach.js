@@ -17,8 +17,7 @@ export const DeployButton = ({ ctcArgs }) => {
     const deploy = async () => {
         // Yüklendiğini gösteren bir pencere aç
         setShow(true);
-
-        const ctc = account.deploy(Backend);
+        const ctc = account.contract(Backend);
 
         // Uygulama sayfasında katılımcıyı tanımlamak için kontratı 
         // Context'e aktar

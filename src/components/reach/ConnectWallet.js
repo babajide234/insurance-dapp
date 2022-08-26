@@ -1,21 +1,25 @@
 import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
-import * as Reach from "@reach-sh/stdlib/ALGO";
-
+// import * as Reach from "@reach-sh/stdlib";
+// import {  } from '@reach-sh/stdlib';
+import { ALGO_MyAlgoConnect as MyAlgoConnect, loadStdlib } from '@reach-sh/stdlib';
 import Algorand from "../../assets/algorand.png";
-
 import { Context } from "../../Context";
 
 
 const ConnectWallet = () => {
+    const reach = loadStdlib('ALGO');
+    // const reach = loadStdlib(process.env);
+
+    reach.setWalletFallback(reach.walletFallback({providerEnv: 'TestNet', MyAlgoConnect }));
 
     const [account, setAccount, , setBalance, , , , , , , , , , , , setRegularPaymentCount] = useContext(Context);
 
     const connectWallet = async () => {
-        const acc = await Reach.getDefaultAccount();
 
-        const balAtomic = await Reach.balanceOf(acc);
-        const bal = Reach.formatCurrency(balAtomic, 4);
+        const acc = await reach.getDefaultAccount();
+        const balAtomic = await reach.balanceOf(acc);
+        const bal = reach.formatCurrency(balAtomic, 4);
 
         setAccount(Object.assign({}, acc));
 
