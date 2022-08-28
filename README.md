@@ -1,6 +1,6 @@
 # Insurance Dapp
 
-![image](https://user-images.githubusercontent.com/39036635/187094892-48bf259e-9132-4dd7-8409-013c210c8838.png)
+![image](https://user-images.githubusercontent.com/39036635/187094959-6edeca43-fb25-4c97-9ff3-8ebfae4b0872.png)
 
 
 In this project, the subscriber periodically pays some amount of money to the insurance company and can sometimes arbitrarily request money from the company. When the company approves this request, the amount requested by the subscriber is transferred to the subscriber's account.
