@@ -1,7 +1,6 @@
 import { Component } from "react";
 import * as Backend from "../../build/index.main.mjs";
 import * as Reach from "@reach-sh/stdlib";
-
 import { Context } from "../../Context";
 import InsuranceCompanyViews from "./InsuranceCompanyViews";
 
@@ -30,9 +29,6 @@ class InsuranceCompany extends Component {
         const [, , , , , , ctc, , ctcArgs, , , ] = this.context;
         this.interval = setInterval(async () => this.updateBalance(), 10000);
 
-        //const wagerNumber = Reach.parseCurrency(ctcArgs[0].wager);
-        //this.wager = wagerNumber;
-
         Backend.InsuranceCompany(ctc[0], this);
     }
 
@@ -41,7 +37,6 @@ class InsuranceCompany extends Component {
 
         const balance = Reach.formatCurrency(await Reach.balanceOf(account), 4);
         setBalance(balance);
-        //setRegularPaymentCount(regularPaymentCount + 1);
     }
 
     random() { return Reach.hasRandom.random(); }
