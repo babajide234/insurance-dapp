@@ -1,13 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../Context";
 
-/**
- * @dev Uygulama boyunca ne kadar bakiyeniz olduğunu gösterir
- * Düzgün çalışması için her para transferinden sonra 
- * Context'teki balance'ı güncellemeniz gerekli.
- */
 const Balance = () => {
-
     const [account, , balance] = useContext(Context);
 
     return (
@@ -22,4 +16,4 @@ const Balance = () => {
     );
 }
 
-export default Balance;
+export default Balance; 
