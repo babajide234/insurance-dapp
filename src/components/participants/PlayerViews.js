@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext, useHistory } from "react";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
 import Rock from "../../assets/rock.png";
 import Paper from "../../assets/paper.png";
 import Scissors from "../../assets/scissors.png";
 import Spinner from "react-bootstrap/Spinner";
-
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -16,13 +13,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Toast from "react-bootstrap/Toast";
 import {Alert} from 'react-bootstrap';
-
 import * as Reach from "@reach-sh/stdlib";
-
-
 import { Context } from "../../Context";
-
-
 
 const GameButton = ({ src, txt, action }) => {
     return (
@@ -85,50 +77,15 @@ export const InformPaymentCount = ({paymentCount}) => {
 
 
 export const BalanceInfo = ({ getControlBalance }) => {
-/*     console.log("Component BalanceInfo ");
-    const xVal  = 0;
-     
-
-    useEffect(()=>{
-
-          (async () => {
-            const data = await getControlBalance();
-      
-         })();
-
-          
-    }, []) 
-   
-
-    return (
-        <Container className="mt-4">
-            <h2>Waiting for contract</h2>
-            <Spinner animation="border" />
-        </Container>
-    ); */
-
-
-
-       //const history = useHistory();
        const [payment, setPayment] = useState(20);
-       //const payment = 1;
-   
        const [show, setShow] = useState(false);
-   
-   
-   
        const handlePayment = async () => {
            setShow(true);
-   
            setTimeout(function (){
                 getControlBalance(payment);
-           }, 2000); // How long do you want the delay to be (in milliseconds)? 
-   
-          
-          // history.push("/app/bob");
+           }, 2000); 
        }
        
-   
        return (
            <Container className="h-100">
                <div className="mt-3">
@@ -160,26 +117,21 @@ export const SubscriberBalanceBeforePayment = ({ getSubscriberBalanceBeforePayme
     const [account, setAccount, balance , setBalance, , , , , , , , , , ,regularPaymentCount, setRegularPaymentCount ] = useContext(Context);
     const [showResults, setShowResults] = useState(false);
     const [balanceValFormatted, setBalanceValFormatted] = useState("");
-   
-
 
     const handleBalanceBeforePayment = async () => {
         const balanceVal = (await Reach.balanceOf(account));
         setBalanceValFormatted(Reach.formatCurrency(balanceVal, 4)); 
-
         setBeforeBalance(Reach.bigNumberToNumber(balanceVal));
         setShowResults(true);
-       
+      
         alert("Subscriber is paying " + (regularPaymentCount) + " . payment\n" );
 
         setTimeout(function (){
             getSubscriberBalanceBeforePayment(balanceVal);
-        }, 2000); // How long do you want the delay to be (in milliseconds)?
+        }, 2000); 
       
     }
     
-
-
     return (
         <Container className="mt-4">
         <Col>
@@ -196,31 +148,24 @@ export const SubscriberBalanceBeforePayment = ({ getSubscriberBalanceBeforePayme
                         <Button block variant="primary" onClick={()=>handleBalanceBeforePayment()}>{cardInfoButton} </Button>
                     </Card>
                 </Col>
-
             
         </Container>
     );
 }
 
-
 export const SubscriberBalanceAfterPayment = ({ getSubscriberBalanceAfterPayment, cardInfoTitle, cardInfoText, cardInfoButton }) => {
-
     const [afterBalance, setAfterBalance] = useState(0);
-    const [account, setAccount, balance , setBalance, , , , , , , , , , , regularPaymentCount, setRegularPaymentCount] = useContext(Context);
+    const [account, setAccount, balance , setBalance, regularPaymentCount, setRegularPaymentCount] = useContext(Context);
     const [showResults, setShowResults] = useState(false);
     const [balanceValFormatted, setBalanceValFormatted] = useState("");
     
-
-
     const handleBalanceAfterPayment = async () => {
-
         const balanceVal = (await Reach.balanceOf(account));
-        
         setAfterBalance(Reach.bigNumberToNumber(balanceVal));
         setBalanceValFormatted((Reach.formatCurrency(balanceVal, 4)));
         setShowResults(true);
-        setTimeout(function (){
-            //alert(regularPaymentCount + ". payment is executing");
+        
+        setTimeout(function () {
             getSubscriberBalanceAfterPayment(balanceVal);
         }, 2000); // How long do you want the delay to be (in milliseconds)? 
     }
@@ -251,17 +196,12 @@ export const SubscriberBalanceAfterPayment = ({ getSubscriberBalanceAfterPayment
 
 
 export const SubscriberLastBalanceScreen = ({ getSubscriberLastBalance, cardInfoTitle, cardInfoText, cardInfoButton }) => {
-
     const [lastBalance, setLastBalance] = useState(0);
     const [account, setAccount, balance , setBalance] = useContext(Context);
     const [showResults, setShowResults] = useState(false);
     const [balanceValFormatted, setBalanceValFormatted] = useState("");
     
-
-
-
     const handleLastBalance = async () => {
-
         const balanceVal = (await Reach.balanceOf(account));
         setLastBalance(Reach.bigNumberToNumber(balanceVal));
         setBalanceValFormatted((Reach.formatCurrency(balanceVal, 4)));
@@ -269,7 +209,7 @@ export const SubscriberLastBalanceScreen = ({ getSubscriberLastBalance, cardInfo
 
         setTimeout(function (){
             getSubscriberLastBalance(balanceVal);
-        }, 2000); // How long do you want the delay to be (in milliseconds)? 
+        }, 2000); 
     }
 
     return (
@@ -286,37 +226,29 @@ export const SubscriberLastBalanceScreen = ({ getSubscriberLastBalance, cardInfo
                              </Card.Text>
                             : null
                          }
-
                         
                         <Button block variant="primary" onClick={()=>handleLastBalance()}>{cardInfoButton} </Button>
                     </Card>
                 </Col>
-
-            
         </Container>
     );
 }
 
-
-
 export const CompanyLastBalanceScreen = ({ getInsuranceCompanyBalance, cardInfoTitle, cardInfoText, cardInfoButton }) => {
-
     const [lastBalance, setLastBalance] = useState(0);
     const [account, setAccount, balance , setBalance] = useContext(Context);
     const [showResults, setShowResults] = useState(false);
     const [balanceValFormatted, setBalanceValFormatted] = useState("");
 
     const handleLastBalance = async () => {
-
         const balanceVal = (await Reach.balanceOf(account));
-        
         setLastBalance(Reach.bigNumberToNumber(balanceVal));
         setBalanceValFormatted((Reach.formatCurrency(balanceVal, 4)));
         setShowResults(true);
 
         setTimeout(function (){
             getInsuranceCompanyBalance(balanceVal);
-        }, 2000); // How long do you want the delay to be (in milliseconds)? 
+        }, 2000);  
     }
 
     return (
@@ -325,7 +257,6 @@ export const CompanyLastBalanceScreen = ({ getInsuranceCompanyBalance, cardInfoT
                     <Card className="p-3">
                         <Card.Title>{cardInfoTitle} </Card.Title>
                         <hr className="mt-1" />
-
                         { showResults   
                             ?
                             <Card.Text>
@@ -336,36 +267,21 @@ export const CompanyLastBalanceScreen = ({ getInsuranceCompanyBalance, cardInfoT
                         <Button block variant="primary" onClick={()=>handleLastBalance()}>{cardInfoButton} </Button>
                     </Card>
                 </Col>
-
-            
         </Container>
     );
 }
 
-
-
 export const GetPayment = ({ getPayment }) => {
-
-    //const history = useHistory();
     const [payment, setPayment] = useState(10);
-    //const payment = 1;
-
     const [show, setShow] = useState(false);
-
-
-
+    
     const handlePayment = async () => {
         setShow(true);
-
         setTimeout(function (){
             getPayment(payment);
-        }, 2000); // How long do you want the delay to be (in milliseconds)? 
-
-       
-       // history.push("/app/bob");
+        }, 2000);  
     }
     
-
     return (
         <Container className="h-100">
             <div className="mt-3">
@@ -401,20 +317,15 @@ const PaymentModal = ({ show, infoText }) => {
     );
 }
 
-
-
-
 export const ToastGeneral = ({ toastHeaderInfo, toastBodyInfo, otherInfo }) => {
-    //const [showToast, setShowToast] = useState(true);
     const [show, setShow] = useState(true);
     const handleClose = () => setShow(false);
-
     const screenHeight = window.innerHeight;
-
     const faucetToastStyle = {
         top: `${screenHeight * .8}px`,
         left: "2em",
     };
+    
     return (
         <Toast
             className="position-absolute m-3"
@@ -436,17 +347,14 @@ export const ToastGeneral = ({ toastHeaderInfo, toastBodyInfo, otherInfo }) => {
 }
 
 export const UserRequestScreen = ({ getUserRequest }) => {
-
-    //const history = useHistory();
     const [payment, setPayment] = useState(10);
     const [show, setShow] = useState(false);
-
+    
     const handleUserRequest = async () => {
         const userRequestOption = document.querySelector("#userReqestOption").value;
-
         var requestedObj = new Object();
         var isUserRequsted = false;
-
+        
         if(userRequestOption === "Yes")
             isUserRequsted = true;
         else
@@ -463,11 +371,9 @@ export const UserRequestScreen = ({ getUserRequest }) => {
         setShow(true);
         setTimeout(function (){
             getUserRequest(requestedObj);
-        }, 2000); // How long do you want the delay to be (in milliseconds)? 
-       // history.push("/app/bob");
+        }, 2000); 
     }
     
-
     return (
         <Container className="h-100">
             <div className="mt-3">
@@ -499,21 +405,14 @@ export const UserRequestScreen = ({ getUserRequest }) => {
 
 
 export const ApproveUserRequestScreen = ({ approveRequest, approveRequestArgs}) => {
-
     const [beforeBalance, setBeforeBalance] = useState(0);
     const [account, setAccount, balance , setBalance] = useContext(Context);
-
     const userRequestedPaymentFormatted = Reach.formatCurrency(approveRequestArgs.userRequestedPayment, 4);
     const balancedFormatted = Reach.formatCurrency(approveRequestArgs.balance, 4);
     
-
     var isUserRequestString = "No";
-
     if(approveRequestArgs.isRequested)
         isUserRequestString = "Yes";
-
-    
-
 
     const handleAproveUserRequest = async (isApproved) => {
         if(isApproved)
@@ -521,13 +420,9 @@ export const ApproveUserRequestScreen = ({ approveRequest, approveRequestArgs}) 
         else
             console.log("gelen parametre false");
 
-
         setTimeout(function (){
             approveRequest(isApproved);
-        }, 4000); // How long do you want the delay to be (in milliseconds)? 
-        
-
-        
+        }, 4000);  
     }
 
     if(!approveRequestArgs.isRequested) {
@@ -568,8 +463,6 @@ export const ApproveUserRequestScreen = ({ approveRequest, approveRequestArgs}) 
 
                     </Card>
                 </Col>
-
-                
             </Container>
         );
     }
@@ -582,7 +475,4 @@ export const FinishScreen = () => {
         </Container>
     );
 }
-
-
-
 
