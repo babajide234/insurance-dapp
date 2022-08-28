@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 import { GetHand, InformTimeout, SeeOutcome, BalanceInfo, ApproveUserRequestScreen, CompanyLastBalanceScreen, FinishScreen} from "./PlayerViews";
 
+
 const InsuranceCompanyViews = ({ appState, args, getControlBalanceReady, getControlBalance, approveRequestReady,  approveRequest, approveRequestArgs, getCompanyBalanceReady, getInsuranceCompanyBalance}) => {
     switch (appState) {
         case "informTimeout":
