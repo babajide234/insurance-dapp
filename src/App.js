@@ -1,14 +1,11 @@
 import './App.css';
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import AppNavbar from './components/AppNavbar';
 import Home from './components/views/Home';
 import About from './components/views/About';
 import DeployScreen from './components/views/DeployScreen';
 import InsuranceCompany from './components/participants/InsuranceCompany';
 import Subscriber from './components/participants/Subscriber';
-//import { AcceptWager } from "./components/participants/SubscriberViews";
 
 const App = () => {
   return (
