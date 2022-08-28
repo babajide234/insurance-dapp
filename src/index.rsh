@@ -78,8 +78,6 @@ export const main =
           interact.showPaymentCount(paymentCount + 1);
         });
 
-     
-
         Subscriber.only(() => {
           const tempBalanceofSubscriber0 =  declassify(interact.getSubscriberBalanceBeforePayment()); 
         });
@@ -109,15 +107,8 @@ export const main =
         });
         InsuranceCompany.publish(result);
         
-       
-  
         commit();
         
-        
-       // Subscriber.publish();
-        
-
-
         Subscriber.only(() => {
           const tempBalanceofSubscriber =  declassify(interact.getSubscriberBalanceAfterPayment()); 
         });
@@ -130,7 +121,6 @@ export const main =
           if(result) {
             transfer(requestedPayment).to(Subscriber);
           }
-          //transfer(balance()).to(InsuranceCompany);
           [bal, usgVal,paymentCount ] = [bal, 0, paymentCount + 1];
           continue; }
         else {
@@ -152,14 +142,6 @@ export const main =
       InsuranceCompany.only(() => {
         const tempBalanceofInsuranceCompanyY =  declassify(interact.getInsuranceCompanyBalance());
       });
-      InsuranceCompany.publish(tempBalanceofInsuranceCompanyY);
-
-
-
-
-        
-      
-
-        
+      InsuranceCompany.publish(tempBalanceofInsuranceCompanyY); 
 
       commit(); } );
