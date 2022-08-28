@@ -155,7 +155,7 @@ export const SubscriberBalanceBeforePayment = ({ getSubscriberBalanceBeforePayme
 
 export const SubscriberBalanceAfterPayment = ({ getSubscriberBalanceAfterPayment, cardInfoTitle, cardInfoText, cardInfoButton }) => {
     const [afterBalance, setAfterBalance] = useState(0);
-    const [account, setAccount, balance , setBalance, regularPaymentCount, setRegularPaymentCount] = useContext(Context);
+    const [account, setAccount, balance , setBalance, , , , , , , , , , ,regularPaymentCount, setRegularPaymentCount] = useContext(Context);
     const [showResults, setShowResults] = useState(false);
     const [balanceValFormatted, setBalanceValFormatted] = useState("");
     
