@@ -7,6 +7,8 @@ In this project, the subscriber periodically pays some amount of money to the in
 
 You can run this app according to Instrustion page properly. 
 
+![image](https://user-images.githubusercontent.com/39036635/187095031-6236f2d8-0d42-4943-a00c-085254a5156b.png)
+
 
 ## Instructions
 * Node.js must be installed on your system.
