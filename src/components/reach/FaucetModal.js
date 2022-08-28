@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as Reach from "@reach-sh/stdlib";
-
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -9,7 +8,6 @@ import Spinner from "react-bootstrap/Spinner"
 import Toast from "react-bootstrap/Toast";
 
 const FaucetModal = ({ account, setBalance, show, setShow, unit }) => {
-
     const [clicked, setClicked] = useState(false);
     const [showToast, setShowToast] = useState(false);
     const [lastAmt, setLastAmt] = useState(0);
