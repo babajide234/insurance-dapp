@@ -1,17 +1,12 @@
 import { Component } from "react";
 import * as Backend from "../../build/index.main.mjs";
 import * as Reach from "@reach-sh/stdlib";
-
-
 import { Context } from "../../Context";
 import SubscriberViews from "./SubscriberViews";
 
-
-
-
 class Subscriber extends Component {
     static contextType = Context;
-
+    
     constructor(props) {
         super(props);
 
@@ -46,30 +41,11 @@ class Subscriber extends Component {
 
         const balance = Reach.formatCurrency(await Reach.balanceOf(account), 4);
         setBalance(balance);
-       // setRegularPaymentCount(regularPaymentCount + 1);
     }
 
     random() { return Reach.hasRandom.random(); }
-
-  /*   async acceptWager(wager) {
-        const fmtWager = Reach.formatCurrency(wager, 4);
-        return await new Promise(res => {
-            console.log("acceptWager is called");
-            this.setState({
-                appState: "acceptWager",
-                args: [fmtWager,],
-                resAcceptWager: res,
-            });
-        });
-    }
-    acceptWagerExt() {
-        console.log("acceptWager is called");
-        this.state.resAcceptWager();
-    }
- */
-
-    async getPayment() {
-       
+    
+    async getPayment() {       
         const paymentAmount = await new Promise(res => {
             this.setState({
                 appState: "getPayment",
@@ -91,7 +67,6 @@ class Subscriber extends Component {
     }
 
     async getSubscriberBalanceBeforePayment() {
-        
         const beforePaymentAmount = await new Promise(res => {
             this.setState({
                 appState: "getSubscriberBalanceBeforePayment",
@@ -144,9 +119,6 @@ class Subscriber extends Component {
         this.state.resGetSubscriberLastBalance(subscriberLastBalance);
     }
     
-
-
-
     async informTimeout() {
         this.setState({
             appState: "informTimeout",
@@ -189,10 +161,6 @@ class Subscriber extends Component {
         this.state.resGetUserRequest(userRequestObj);
     }
 
-
-    
-
-
     render() {
         return (<SubscriberViews
             appState={this.state.appState}
@@ -210,8 +178,7 @@ class Subscriber extends Component {
             getSubscriberBalanceAfterPayment={this.getSubscriberBalanceAfterPaymentExt}
             getSubscriberLastBalanceReady={this.state.resGetSubscriberLastBalance !== null}
             getSubscriberLastBalance={this.getSubscriberLastBalanceExt}
-          
-            
+           
             />);
     }
 }
