@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
 import * as Backend from "../../build/index.main.mjs";
 import { useHistory } from "react-router-dom";
-
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
-
 import { Context } from "../../Context";
 
 export const DeployButton = ({ ctcArgs }) => {
@@ -19,20 +17,8 @@ export const DeployButton = ({ ctcArgs }) => {
         setShow(true);
         const ctc = account.contract(Backend);
 
-        // Uygulama sayfasında katılımcıyı tanımlamak için kontratı 
-        // Context'e aktar
-        setCtc([ctc]);
-
-        // Kontratı yüklerken vereceğimiz değerleri burada veriyoruz
-        setCtcArgs(ctcArgs);
-
-        // Kontrat bilgilerini String haline getir ve ileride kopyalamak için
-        // Context'e aktar
         const ctcInfo = JSON.stringify(await ctc.getInfo(), null, 2);
-        setCtcInfo([ctcInfo]);
-
-        // Kontrat yükleme sayfasına geç
-        history.push('/deploy');
+        setCtcInfo([ctcInfo]); 
     }
 
     return (
@@ -47,20 +33,14 @@ export const AttachButton = () => {
     const [account, , , , , , , setCtc] = useContext(Context);
     const [show, setShow] = useState(false);
     const history = useHistory();
-
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
     const attach = async (ctcInfo) => {
-        // Bilgisi verilen kontrata bağlan
         const ctc = await account.attach(Backend, JSON.parse(ctcInfo));
-
-        // Uygulama sayfasında katılımcıyı tanımlamak için kontratı 
-        // Context'e aktar
         setCtc([ctc]);
 
         console.log("Attached to the contract");
-        // Uygulama sayfasına geç
         history.push("/app/subscriber");
     }
 
@@ -77,7 +57,6 @@ export const AttachButton = () => {
 
 const AttachModal = ({ show, handleClose, attach }) => {
     const handleAttach = () => {
-        // Kontrat bilgilerini çek
         const info = document.querySelector("#ctcArea").value;
         attach(info);
     }
