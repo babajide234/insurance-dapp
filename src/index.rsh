@@ -47,30 +47,11 @@ export const main =
       Subscriber.publish(howMuch);
       commit();
 
-     /* Subscriber.publish();
-      require(howMuch > 0);
-      require(getControlBalance > howMuch);
-      
-      commit();
-
-      Subscriber.only(() => {
-        
-        const cycleCount = getControlBalance / howMuch;
-        assume(cycleCount > 0); 
-      });
-      Subscriber.publish(cycleCount);
-     
-      commit();
-      */
-  
-
-      Subscriber.publish();
- 
+      Subscriber.publish(); 
 
       var [bal, usgVal, paymentCount]  = [0, 0, 0];
       invariant(bal == 0);
       while ( usgVal == 0 ) {
-        //assert(cycleCount > 0);
 
         commit();
 
@@ -90,8 +71,6 @@ export const main =
         
         Subscriber.pay(howMuch);
         
-        //transfer(balance()).to(InsuranceCompany);
-
         commit();
 
         Subscriber.only(() => {
