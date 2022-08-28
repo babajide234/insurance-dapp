@@ -1,20 +1,14 @@
 import React from "react";
-
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-
 import { LinkContainer } from "react-router-bootstrap";
-
 import Logo from "../assets/logo-notext.png";
 import FaucetButton from "./reach/FaucetButton";
 import Balance from "./reach/Balance";
 import RegularPayment from "./reach/RegularPayment";
 
-
 const AppNavbar = () => {
-
-
     return (
         <Navbar  bg="primary" variant="dark">
             <Container>
