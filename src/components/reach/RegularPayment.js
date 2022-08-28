@@ -1,13 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../Context";
 
-/**
- * @dev Uygulama boyunca ne kadar bakiyeniz olduğunu gösterir
- * Düzgün çalışması için her para transferinden sonra 
- * Context'teki balance'ı güncellemeniz gerekli.
- */
 const RegularPayment = () => {
-
     const [account, , balance, , , , , , , , , , , ,regularPaymentCount, setRegularPaymentCount ] = useContext(Context);
     var regularPaymentCountAsString = "";
 
@@ -19,10 +13,8 @@ const RegularPayment = () => {
     else {
         console.log("eeeeeeeeeeeeeeeeeeeee" + regularPaymentCount)
         regularPaymentCountAsString = 0;
-
     }
         
-
     return (
         Object.keys(account).length !== 0
             ? (<span className=" ml-3 p-2" style={{
@@ -33,8 +25,6 @@ const RegularPayment = () => {
             </span>)
             : <div />
     );
-
-   
 }
 
-export default RegularPayment;
+export default RegularPayment; 
